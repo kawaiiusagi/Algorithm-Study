@@ -1,0 +1,52 @@
+페이지 다듬기 전 코드만 잠깐
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	int num;
+	cin >> num;
+
+	string name;
+
+	vector<string> v;
+	vector<char> first;
+	vector<char> result;
+
+	//v에서 각 첫번째 숫자만을 추출해서 개수를 파악하고 알파벳 순으로 정렬
+
+	for (int i = 0; i < num; i++) {
+		cin >> name;
+		v.push_back(name);
+	}
+
+	for (string s : v) { //자료형에 주의하기
+		first.push_back(s[0]);
+	}
+	//아스키 코드를 이용해서 개수를 검사하기? 음.
+	for (char ch = 'a'; ch <= 'z'; ch++) {
+		int cnt = 0;
+
+		for (char c : first) {
+			if (c == ch) cnt++;
+		}
+
+		if (cnt >= 5) {
+			result.push_back(ch);
+		} //result의 길이가 0이면 PREDAJA
+	}
+	if (result.empty()) {
+		cout << "PREDAJA";
+	}
+	else {
+		for (char c : result) {
+			cout << c;
+		}
+	}
+	//벡터는 바로 출력할 수 없어.
+}
+```
